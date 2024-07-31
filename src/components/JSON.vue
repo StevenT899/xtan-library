@@ -43,8 +43,14 @@
 
       <h3>Nested Arrays/Objects</h3>
       <p>{{ austen?.name }}'s works:</p>
+
       <!-- Activity 9: Render a list of Austen's works. Hint: Use the v-for directive to iterate through the array of authors that you have filtered out. -->
-      <!-- TODO: CODE TO RENDER LIST OF AUSTEN'S WORKS HERE -->
+      <!-- RENDER LIST OF AUSTEN'S WORKS HERE -->
+      <ul>
+        <li v-for="work in austen?.famousWorks" :key="work.title">
+          {{ work.title }} ({{ work.year }})
+        </li>
+      </ul>
       
       
     </section>
@@ -58,18 +64,26 @@
         Company:
         <!-- Activity 9a: Get the company name from the bookstores object. -->
         <!-- TODO: CODE TO GET COMPANY NAME HERE -->
+        {{ bsCompanyName }}
+        
       </p>
 
       <p>
         Total Stores:
         <!-- Activity 9b: Get the total number of stores from the bookstores object. -->
-        <!-- TODO: CODE TO GET TOTAL STORES HERE -->
+        <!-- GET TOTAL STORES HERE -->
+        {{ bsTotalStores }}
       </p>
 
       <h3>Iterating Object Properties</h3>
       <p>Store Types:</p>
       <!-- Activity 10: Iterate through the storeTypes array and display the store type and the number of stores that use that type. -->
-      <!-- TODO: CODE TO RENDER LIST OF STORE TYPES HERE -->
+      <!-- RENDER LIST OF STORE TYPES HERE -->
+      <ul>
+        <li v-for="(count, type) in storeTypes" :key="type">
+          {{ type }}: {{ count }} stores
+        </li>
+      </ul>
 
       <h3>Nested Objects</h3>
       <p>Opening Hours:</p>
@@ -111,6 +125,7 @@ import bookstores from "../assets/json/bookstores.json"
 const showMessage = ref(false)
 
 
+
 // Activity 2: Get authors born after 1850
 const modernAuthors = computed(() => 
   // FILTER ARRAY OF AUTHORS
@@ -126,14 +141,19 @@ const allFamousWorks = computed(() =>
 // Activity 4: Find author by name
 const orwell = computed(() => 
   // FIND AUTHOR BY NAME HERE
-  authors.filter((author) => author.name === "George Orwell")
+  authors.find((author) => author.name === "George Orwell")
 )
 
 // Activity 5: Find author by ID
 const austen = computed(() => 
   // FIND AUTHOR BY ID HERE
-  authors.filter((author) => author.id === 1)
+  authors.find((author) => author.id === 1)
 )
+
+const bsCompanyName = bookstores.name;
+const bsTotalStores = bookstores.totalStores;
+const storeTypes = bookstores.storeTypes;
+
 </script>
 
 <style scoped>
