@@ -119,11 +119,15 @@
       <p v-else class="message">Click the button to see a message.</p>
     </section>
 
-    <section class="lab-section">
-      <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
-      <p>Highlighting Specific Authors:</p>
-
-    </section>
+    <section class="lab-highlightAuthor-section">
+    <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
+    <p>Highlighting Specific Authors:</p>
+    <ul>
+      <li v-for="author in authors" :key="author.id" >
+        {{ author.name }} 
+      </li>
+    </ul>
+  </section>
   </div>
 </template>
 
@@ -176,6 +180,7 @@ function days(day) {
     return 'Saturday and Sunday';
   }
 }
+
 </script>
 
 <style scoped>
@@ -198,6 +203,14 @@ h1 {
 }
 
 .lab-section {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lab-highlightAuthor-section {
   background-color: white;
   padding: 20px;
   margin-bottom: 20px;
@@ -237,5 +250,9 @@ li {
   padding: 10px;
   margin: 5px 0;
   border-radius: 5px;
+}
+
+.lab-highlightAuthor-section li:hover {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); 
 }
 </style>
