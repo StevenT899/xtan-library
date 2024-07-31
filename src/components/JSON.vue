@@ -88,7 +88,7 @@
       <h3>Nested Objects</h3>
       <p>Opening Hours:</p>
       <!-- Activity 11: Iterate through the openingHours object and display the day of the week and the opening and closing times. -->
-      <!-- TODO: CODE TO RENDER LIST OF OPENING HOURS HERE -->
+      <!-- RENDER LIST OF OPENING HOURS HERE -->
       <ul>
         <li  v-for="(hours, day) in openingHours" :key="day">
           {{ days(day) }}: {{ hours.open }} - {{ hours.close }}
@@ -100,16 +100,23 @@
       <!-- TODO: CODE TO GET TOP SELLERS HERE -->
       <p>We operate in:</p>
       <p>Our #1 seller:</p>
+      <ul>
+      <li v-for="(topSelledBook, index) in topSellers" :key="index">
+        {{ topSelledBook }}
+      </li>
+    </ul>
     </section>
 
     <section class="lab-section">
       <h2>v-if & v-else</h2>
       <p>Toggle visibility based on a condition.</p>
       <!-- Activity 13: Toggle the message visibility when the button is clicked. -->
-      <!-- TODO: CODE TO TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
+      <!-- TOGGLE MESSAGE VISIBILITY HERE. Hint: Use the v-if directive. -->
       <button @click="showMessage = !showMessage">Toggle Message</button>
-      <p class="message success">✨ You're a Vue superstar! ✨</p>
-      <p>Click the button to see a message.</p>
+      <p v-if="showMessage" class="message success">
+        ✨ You're a Vue superstar! ✨
+      </p>
+      <p v-else class="message">Click the button to see a message.</p>
     </section>
 
     <section class="lab-section">
@@ -160,6 +167,7 @@ const bsCompanyName = bookstores.name;
 const bsTotalStores = bookstores.totalStores;
 const storeTypes = bookstores.storeTypes;
 const openingHours = bookstores.openingHours;
+const topSellers = bookstores.topSellers;
 function days(day) {
   if (day === "weekdays") {
     return 'Monday to Friday';
