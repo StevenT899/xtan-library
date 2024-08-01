@@ -119,7 +119,7 @@
       <p v-else class="message">Click the button to see a message.</p>
     </section>
 
-    <section class="lab-highlightAuthor-section">
+    <section class="lab-section">
     <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
     <p>Highlighting Specific Authors:</p>
     <ul>
@@ -260,7 +260,7 @@ li {
   border-radius: 5px;
 }
 
-.lab-highlightAuthor-section li.highlight {
+.highlight {
   background: linear-gradient(135deg, #ff7e5f, #feb47b);
   color:white; 
 }
