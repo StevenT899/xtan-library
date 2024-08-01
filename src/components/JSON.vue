@@ -12,7 +12,7 @@
       <!-- CODE TO RENDER LIST OF AUTHORS HERE -->
       <ul>
         <li v-for="author in authors" :key="author.id">
-          {{ author.name }} ({{ author.birthYear }})
+          {{ author.name }}
         </li>
       </ul>
       
@@ -63,7 +63,7 @@
       <p>
         Company:
         <!-- Activity 9a: Get the company name from the bookstores object. -->
-        <!-- TODO: CODE TO GET COMPANY NAME HERE -->
+        <!-- CODE TO GET COMPANY NAME HERE -->
         {{ bsCompanyName }}
         
       </p>
@@ -97,7 +97,7 @@
 
       <h3>Working with Arrays in Objects</h3>
       <!-- Activity 12: Get the top sellers from the bookstores object. -->
-      <!-- TODO: CODE TO GET TOP SELLERS HERE -->
+      <!-- CODE TO GET TOP SELLERS HERE -->
       <p>We operate in:</p>
       <p>Our #1 seller:</p>
       <ul>
@@ -123,7 +123,11 @@
     <h2>Attribute, Class and Style Binding with <code>v-bind</code></h2>
     <p>Highlighting Specific Authors:</p>
     <ul>
-      <li v-for="author in authors" :key="author.id" >
+      <li 
+      v-for="author in authors" 
+      :key="author.id"
+      :class="{ highlight: highlightedAuthor(author) }"
+      >
         {{ author.name }} 
       </li>
     </ul>
@@ -179,6 +183,10 @@ function days(day) {
   if (day === "weekends") {
     return 'Saturday and Sunday';
   }
+}
+
+function highlightedAuthor(author) {
+  return author.id === orwell.value?.id;
 }
 
 </script>
@@ -252,7 +260,8 @@ li {
   border-radius: 5px;
 }
 
-.lab-highlightAuthor-section li:hover {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b); 
+.lab-highlightAuthor-section li.highlight {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color:white; 
 }
 </style>
