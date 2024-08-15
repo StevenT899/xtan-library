@@ -25,12 +25,18 @@
           </div>
           <div class="row mb-3">
             <div class="col-sm-6">
+              <label class="form-label">Australian Resident?</label>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="isAustralian" v-model="formData.isAustralian">
-                <label class="form-check-label" for="isAustralian">Australian Resident?</label>
-                <div v-if="errors.isAustralian" class="text-danger">{{ errors.isAustralian }}</div>
+                <input type="radio" class="form-check-input" id="isAustralian" value="yes" v-model="formData.isAustralian">
+                <label class="form-check-label" for="isAustralian">Yes</label>
               </div>
-            </div>
+              <div class="form-check">
+                <input type="radio" class="form-check-input" id="notAustralian" value="no" v-model="formData.isAustralian">
+                <label class="form-check-label" for="notAustralian">No</label>
+              </div>
+            <div v-if="errors.isAustralian" class="text-danger">{{ errors.isAustralian }}</div>
+          </div>
+
             <div class="col-sm-6">
               <label for="gender" class="form-label">Gender</label>
               <select class="form-select" id="gender"  v-model="formData.gender">
@@ -56,20 +62,13 @@
   </div>
 
   <div class="row mt-5" v-if="submittedCards.length">
-    <div class="d-flex flex-wrap justify-content-start">
-      <div v-for="(card, index) in submittedCards" :key="index" class="card m-2" style="width: 18rem;">
-        <div class="card-header">
-          User Information
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Username: {{ card.username }}</li>
-          <li class="list-group-item">Password: {{ card.password }}</li>
-          <li class="list-group-item">Australian Resident: {{ card.isAustralian ? 'Yes' : 'No' }}</li>
-          <li class="list-group-item">Gender: {{ card.gender }}</li>
-          <li class="list-group-item">Reason: {{ card.reason }}</li>
-        </ul>
-      </div>
-    </div>
+      <DataTable :value="submittedCards">
+        <Column field="username" header="Username"></Column>
+        <Column field="password" header="Password"></Column>
+        <Column field="isAustralian" header="Australian Resident"></Column>
+        <Column field="gender" header="Gender"></Column>
+        <Column field="reason" header="Reason"></Column>
+    </DataTable>
   </div>
 </template>
 
@@ -77,6 +76,9 @@
 
 <script setup>
 import { ref } from 'vue';
+
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 
 const formData = ref({
   username: '',
@@ -103,7 +105,13 @@ const submitForm = () => {
 };
 
 const clearForm = () => {
-    submittedCards.value = [];
+    formData.value = {
+      username: '',
+      password: '',
+      isAustralian: '',
+      reason: '',
+      gender: ''
+    };
 };
 
 const errors = ref({
@@ -168,13 +176,6 @@ const validateReason = (blur) => {
     errors.value.reason = null;
   }
 };
-
-
-
-
-
-
-
 
 </script>
 
