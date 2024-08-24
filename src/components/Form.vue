@@ -155,7 +155,7 @@ const validatePassword = (blur) => {
 
 const validateResident = () => {
   if (!formData.value.isAustralian) {
-    errors.value.isAustralian = "You must confirm your residency status";
+    errors.value.isAustralian = "You must choose a residency option";
   } else {
     errors.value.isAustralian = null;
   }
