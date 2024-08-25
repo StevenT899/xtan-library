@@ -1,3 +1,6 @@
+
+
+
 <template>
     <!-- Using Bootstrap's Header template (starter code) -->
     <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
@@ -9,9 +12,18 @@
               >Home (Week 5)</router-link
             >
           </li>
+         
+
+
           <li class="nav-item">
             <router-link to="/about" class="nav-link" active-class="active">About</router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
+          </li>
+
+          
         </ul>
       </header>
     </div>

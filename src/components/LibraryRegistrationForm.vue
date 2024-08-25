@@ -94,12 +94,29 @@ const validateReason = (blur) => {
   }
 }
 
+// const isAuthenticated = ref(localStorage.getItem('isAuthenticated') === 'true')
+// const logout = () => {
+ 
+//   localStorage.removeItem('isAuthenticated')
+  
 
+//   router.push({ name: 'Login' })
+// }
 
 
 </script>
 
 <template>
+ <!-- <div>
+    <button @click="logout">Log Out</button>
+  </div>
+  
+     <div>
+    <p v-if="isAuthenticated">You are logged in!</p>
+    <p v-else>Please log in.</p>
+  </div> -->
+  
+    
   <!-- 🗄️ W3. Library Registration Form -->
   <div class="container mt-5">
     <div class="row">
