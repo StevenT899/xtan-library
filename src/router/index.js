@@ -3,14 +3,16 @@ import HomeView from '../Views/HomeView.vue'
 import AboutView from '../Views/AboutView.vue'
 import LoginView from '../Views/LoginView.vue'
 import AccessDeniedView from '../Views/AccessDeniedView.vue'
-import  RegistrationForm  from '../components/LibraryRegistrationForm.vue';
+import FireBaseSigninView from '../Views/FireBaseSigninView.vue'
+import FireBaseRegisterView from '../Views/FireBaseRegisterView.vue'
+
 
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: RegistrationForm
+    component: HomeView
   },
   {
     path: '/about',
@@ -29,6 +31,18 @@ const routes = [
     path: '/access-denied', 
     name: 'AccessDenied', 
     component: AccessDeniedView 
+  },
+
+  { 
+    path: '/FireLogin', 
+    name: 'FireLogin', 
+    component: FireBaseSigninView 
+  },
+
+  { 
+    path: '/FireRegister', 
+    name: 'FireRegister', 
+    component: FireBaseRegisterView 
   }
 ]
 
