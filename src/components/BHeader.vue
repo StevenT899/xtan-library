@@ -1,12 +1,21 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { ref, onMounted } from 'vue';
+import { getAuth, signOut } from 'firebase/auth';
 
 const router = useRouter()
+const auth = getAuth();
 
-const logout = () => {
-  localStorage.removeItem('isAuthenticated')
-  router.push({ name: 'Login' })
-}
+const logout = async () => {
+  try {
+    await signOut(auth);
+    console.log(auth.currentUser);
+    router.push('/FireLogin'); 
+  } catch (error) {
+    console.error('Error logging out:', error);
+  }
+};
+
 </script>
 
 
@@ -24,6 +33,14 @@ const logout = () => {
 
           <li class="nav-item">
             <router-link to="/about" class="nav-link" active-class="active">About</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/AddBook" class="nav-link" active-class="active">Add Book</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/BookList" class="nav-link" active-class="active">BookList</router-link>
           </li>
 
           <li class="nav-item">

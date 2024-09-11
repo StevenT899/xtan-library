@@ -31,7 +31,6 @@ const db = getFirestore();
 const signin = async () => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email.value, password.value);
-    console.log('Firebase Sign In Successful!');
 
     const user = userCredential.user;
 
@@ -40,8 +39,10 @@ const signin = async () => {
     if (userDoc.exists()) {
       const userData = userDoc.data();
       if (userData.role === 'admin') {
-        router.push('/AdminView');
+        console.log(auth.currentUser);
+        router.push('/Admin');
       } else {
+        console.log(auth.currentUser);
         router.push('/');
       }
     } else {

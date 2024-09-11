@@ -6,6 +6,8 @@ import AccessDeniedView from '../Views/AccessDeniedView.vue'
 import FireBaseSigninView from '../Views/FireBaseSigninView.vue'
 import FireBaseRegisterView from '../Views/FireBaseRegisterView.vue'
 import AdminView from '../Views/AdminView.vue'
+import AddBookView from '@/Views/AddBookView.vue'
+import BookListView from '@/Views/BookListView.vue'
 
 
 
@@ -50,6 +52,18 @@ const routes = [
     path: '/Admin', 
     name: 'Admin', 
     component: AdminView 
+  },
+
+  { 
+    path: '/AddBook', 
+    name: 'AddBook', 
+    component: AddBookView 
+  },
+
+  { 
+    path: '/BookList', 
+    name: 'BookList', 
+    component: BookListView 
   }
 ]
 
