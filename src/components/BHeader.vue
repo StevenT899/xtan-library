@@ -42,6 +42,8 @@ const logout = () => {
             <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
           </li>
 
+          
+
          
 
           

@@ -5,6 +5,7 @@ import LoginView from '../Views/LoginView.vue'
 import AccessDeniedView from '../Views/AccessDeniedView.vue'
 import FireBaseSigninView from '../Views/FireBaseSigninView.vue'
 import FireBaseRegisterView from '../Views/FireBaseRegisterView.vue'
+import AdminView from '../Views/AdminView.vue'
 
 
 
@@ -43,6 +44,12 @@ const routes = [
     path: '/FireRegister', 
     name: 'FireRegister', 
     component: FireBaseRegisterView 
+  },
+
+  { 
+    path: '/Admin', 
+    name: 'Admin', 
+    component: AdminView 
   }
 ]
 
