@@ -43,9 +43,9 @@ const logout = async () => {
             <router-link to="/BookList" class="nav-link" active-class="active">BookList</router-link>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a href="#" @click.prevent="logout" class="nav-link">Logout</a>
