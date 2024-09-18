@@ -19,6 +19,7 @@
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
+// import { getDoc, doc } from 'firebase/firestore';
 import { useRouter } from 'vue-router';
 
 const email = ref('');

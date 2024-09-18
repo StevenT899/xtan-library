@@ -20,8 +20,6 @@ const logout = async () => {
 
 
 <template>
-    <!-- Using Bootstrap's Header template (starter code) -->
-    <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
     <div class="container">
       <header class="d-flex justify-content-center py-4">
         <ul class="nav nav-pills">
@@ -57,6 +55,10 @@ const logout = async () => {
 
           <li class="nav-item">
             <router-link to="/FireRegister" class="nav-link" active-class="active">Firebase Register</router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/GetBookCount" class="nav-link" active-class="active">Get Book Count</router-link>
           </li>
 
           
