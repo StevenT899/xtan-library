@@ -37,3 +37,27 @@ exports.countBooks = functions.https.onRequest((req, res) => {
     }
   });
 });
+
+exports.addBook = functions.https.onRequest((req, res) => {
+  cors(req, res, async () => {
+    if (req.method !== "POST") {
+      return res.status(405).send("Method Not Allowed");
+    }
+    const {isbn, name} = req.body;
+    const isbnNumber = Number(isbn);
+    if (isNaN(isbnNumber)) {
+      return res.status(400).send("ISBN must be a valid number");
+    }
+    try {
+      const bookRef = await admin.firestore().collection("books").add({
+        isbn: isbnNumber,
+        name: name,
+      });
+
+      return res.status(200).send(`Book added with ID: ${bookRef.id}`);
+    } catch (error) {
+      console.error("Error adding book:", error);
+      return res.status(500).send("Error adding book");
+    }
+  });
+});

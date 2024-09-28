@@ -15,7 +15,7 @@
     </div>
   </template>
   
-  <script>
+  <!-- <script>
   import { ref } from 'vue';
   import { collection, addDoc } from 'firebase/firestore';
   import db from '../firebase/init.js';
@@ -53,5 +53,45 @@
       };
     }
   }
-  </script>
+  </script> -->
+
+
+  <script>
+  import { ref } from 'vue';
+  import axios from 'axios';
   
+  export default {
+    setup() {
+      const isbn = ref('');
+      const name = ref('');
+  
+      const addBook = async () => {
+        try {
+          const isbnNumber = Number(isbn.value);
+          if (isNaN(isbnNumber)) {
+            alert('ISBN must be a valid number');
+            return;
+          }
+
+          const response = await axios.post('https://us-central1-xtan-library.cloudfunctions.net/addBook', {
+            isbn: isbnNumber,
+            name: name.value
+          });
+  
+          alert(`Book added successfully! ${response.data}`);  
+          isbn.value = '';
+          name.value = '';
+        } catch (error) {
+          console.error('Error adding book:', error);
+          alert('Error adding book');
+        }
+      };
+  
+      return {
+        isbn,
+        name,
+        addBook
+      };
+    }
+  }
+  </script>
