@@ -9,6 +9,8 @@ import AdminView from '../Views/AdminView.vue'
 import AddBookView from '@/Views/AddBookView.vue'
 import BookListView from '@/Views/BookListView.vue'
 import GetBookCountView from '@/Views/GetBookCountView.vue'
+import WeatherView from '@/Views/WeatherView.vue'
+import CountBookAPI from '@/Views/CountBookAPI.vue'
 
 
 
@@ -71,7 +73,20 @@ const routes = [
     path: '/GetBookCount', 
     name: 'GetBookCount', 
     component: GetBookCountView
-  }
+  },
+
+  { 
+    path: '/weather', 
+    name: 'WeatherView', 
+    component: WeatherView
+  },
+
+  { 
+    path: '/countBookAPI', 
+    name: 'CountBookAPI', 
+    component: CountBookAPI
+  },
+
 ]
 
 const router = createRouter({

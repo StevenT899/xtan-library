@@ -49,12 +49,12 @@ exports.addBook = functions.https.onRequest((req, res) => {
       return res.status(400).send("ISBN must be a valid number");
     }
     try {
-      const bookRef = await admin.firestore().collection("books").add({
+      const booksCollection = await admin.firestore().collection("books").add({
         isbn: isbnNumber,
         name: name,
       });
 
-      return res.status(200).send(`Book added with ID: ${bookRef.id}`);
+      return res.status(200).send(`Book added with ID: ${booksCollection.id}`);
     } catch (error) {
       console.error("Error adding book:", error);
       return res.status(500).send("Error adding book");
