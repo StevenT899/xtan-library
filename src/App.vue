@@ -1,22 +1,40 @@
-<script setup>
+<script>
 // import JSON from './components/JSON.vue'
 // import Form from './components/Form.vue'
 // import  RegistrationForm  from './components/LibraryRegistrationForm.vue';
 import BHeader from './components/BHeader.vue'
+import CountBookAPI from './Views/CountBookAPI.vue';
+
+
+export default {
+  name: 'App',
+  components: {
+    BHeader,
+    CountBookAPI
+  },
+  computed: {
+    showHeader() {
+      return this.$route.name !== 'countBookAPI';
+    }
+  }
+};
 
 </script>
 
 <template>
   <div class="main-container">
-  <header>
-    <BHeader />
-  </header>
 
-  <main class="main-box">
-    <!-- <RegistrationForm /> -->
-    <router-view></router-view>
-  </main>
+    <header>
+      <BHeader />
+    </header>
+
+    <main class="main-box">
+      <!-- <RegistrationForm /> -->
+      <router-view></router-view>
+    </main>
+
   </div>
+
 </template>
 
 <style scoped>
