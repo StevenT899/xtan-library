@@ -14,8 +14,7 @@
     </div>
 </div>  
 
-<!--The <main> tag in HTML is used to specify the main content of a document 
-      More info about main, check https://www.w3schools.com/tags/tag_main.asp-->  
+ 
       <main>
         <!--If there are no data returned, then skip rendering the information-->  
         <div v-if="weatherData">
